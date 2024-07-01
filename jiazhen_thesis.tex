@@ -13,8 +13,8 @@
 
 \newcommand*\ThesisTitle中文{利用韓文漢字與注音符號增強繁體中文與韓文之間的神經機器翻譯}
 \newcommand*\ThesisTitle英文{Enhancing Neural Machine Translation between Traditional Chinese and Korean Utilizing Korean Hanja and Bopomofo}
-\newcommand*\ThesisNote中文{初稿}% For real thesis omit, or use {初稿} etc.
-\newcommand*\ThesisNote英文{draft}% For real thesis omit, or use {draft} etc.
+%\newcommand*\ThesisNote中文{初稿}% For real thesis omit, or use {初稿} etc.
+%\newcommand*\ThesisNote英文{draft}% For real thesis omit, or use {draft} etc.
 
 \newcommand*\Student中文{李佳臻}
 \newcommand*\Student英文{Jia-Zhen Li}
@@ -59,8 +59,8 @@ We evaluate our translation results using the Bilingual Evaluation Understudy (B
 我們使用雙語評估替補分數(BLEU)評分我們的翻譯結果，透過實證實驗評估其效果，並討論其對提高翻譯品質的影響。我們的研究結果表明，漢字和注音符號的結合有效地提高了繁體中文和韓語之間神經機器翻譯系統的準確性和流暢性。
 }
 
-\newcommand*\Acknowledgements{%
-感謝我...}
+%\newcommand*\Acknowledgements{%
+%感謝我...}
 
 
 
@@ -366,32 +366,34 @@ Figure 3.8 illustrates the extraction of Hanja sentences from Korean sentences u
 
 \clearpage
 %tab3.3
-%\begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=\linewidth]{tab_3_hanja_sentences.jpg}
-%  \captionsetup{type=table}
-%  \caption{Extraction of Hanja sentences from Korean sentences using our approach}
-%  \label{fig:example_hanja_sentences}
-%\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{tab_3_3.jpg}
+  \captionsetup{type=table}
+  \caption{Extraction of Hanja sentences from Korean sentences using our approach}
+  \label{fig:example_hanja_sentences}
+\end{figure}
 
-\begin{table}
-\begin{tabularx}{0.9\linewidth}{p{4cm} p{4cm} p{4cm} p{4cm}}
-Korean & Hanja & Chinese & Similary Score \\
-\toprule
-\krtext{\textbf{감사}합니다.}
-& \textbf{感謝}\krtext{합니다.}
-& \textbf{謝謝}大家。
-& 0.518 \\[.3ex]
-\toprule
-\krtext{\textbf{미국}에서 \textbf{백인 남자}가 \textbf{폭력}을 저지르면 은둔 \textbf{형} 외톨이의 소행이나 \textbf{정신 질환 주차 분쟁}으로 다룹니다.}
-&  \textbf{美國}\krtext{에서} \textbf{伯仁} \textbf{男子}街 \textbf{暴力}乙 \krtext{저지르}綿 \krtext{은둔} \textbf{型} \krtext{외톨이}疑 宵行\krtext{이나} \textbf{精神 疾患 駐車 紛爭}乙奴 \krtext{다룹니다.} 
-& 當白人在\textbf{美國}行使\textbf{暴力行}為時，他們是孤狼，患有\textbf{精神疾病}，或者是\textbf{停車爭執}而導致的。
-& 0.835 \\[.3ex]
-\bottomrule
-\end{tabularx}
-\caption{Extraction of Hanja sentences from Korean sentences using our approach}
-\label{tab:notation}
-\end{table}
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{4cm} p{4cm} p{4cm} p{4cm}}
+%Korean & Hanja & Chinese & Similary Score \\
+%\toprule
+%\krtext{\textbf{감사}합니다.}
+%& \textbf{感謝}\krtext{합니다.}
+%& \textbf{謝謝}大家。
+%& 0.518 \\[.3ex]
+%\toprule
+%\krtext{\textbf{미국}에서 \textbf{백인 남자}가 \textbf{폭력}을 저지르면 은둔 \textbf{형} 외톨이의 소행이나 \textbf{정신 질환 주차 분쟁}으로 다룹니다.}
+%&  \textbf{美國}\krtext{에서} \textbf{伯仁} \textbf{男子}街 \textbf{暴力}乙 \krtext{저지르}綿 \krtext{은둔} \textbf{型} \krtext{외톨이}疑 宵行\krtext{이나} \textbf{精神 疾患 駐車 紛爭}乙奴 \krtext{다룹니다.} 
+%& 當白人在\textbf{美國}行使\textbf{暴力行}為時，他們是孤狼，患有\textbf{精神疾病}，或者是\textbf{停車爭執}而導致的。
+%& 0.835 \\[.3ex]
+%\bottomrule
+%\end{tabularx}
+%\caption{Extraction of Hanja sentences from Korean sentences using our approach}
+%\label{tab:notation}
+%\end{table}
+
+
 %ch3.3
 \section{Phonetic Data Extraction}
 Phonetic notation helps disambiguate homophones and aids in pronunciation, enhancing the translation model's understanding of both languages. In this paper, we use Dragonmapper's  "\textbf{\textit{hanzi.to\_zhuyin(chinese sentence)}}"  function to convert Chinese characters into Bopomofo. This allows us to extract the phonetic representation of Chinese sentences , which is crucial for aligning them with Korean sentences. By incorporating phonetic data, we can improve the model's ability to capture subtle nuances in pronunciation and meaning, ultimately leading to more accurate translations.
@@ -405,29 +407,29 @@ In this paper, we use Dragonmapper to extract phonetic data from Chinese text. B
 The results of the extractions from Chinese sentences are shown in Table 3.1. We will incorporate these extractions into our tokenizer to enhance performance. By adding phonetic data obtained through Dragonmapper, we aim to improve the model's ability to handle pronunciation and homophones, thus providing more accurate and contextually appropriate translations.
 
 %tab3.4
-%\setcounter{table}{2}
-%\begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=\linewidth]{tab_3_dragonmapper.jpg}
-%  \captionsetup{type=table}
-%  \caption{The results of the extractions from Chinese sentences using Dragon Mapper}
-%  \label{tab:dragonmapper}
-%\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{tab_3_4.jpg}
+  \captionsetup{type=table}
+  \caption{The results of the extractions from Chinese sentences using Dragon Mapper}
+  \label{tab:dragonmapper}
+\end{figure}
 
-\begin{table}
-\begin{tabularx}{0.9\linewidth}{p{7cm} p{7cm}}
-Input & Bopomofo\\
-\toprule
-當白人在美國行使暴力行為時，他們是孤狼。 
-& ㄉㄤㄅㄞˊㄖㄣˊㄗㄞˋㄇㄟˇㄍㄨㄛˊㄒㄧㄥˊㄕˇㄅㄠˋㄌㄧˋㄒㄧㄥˊㄨㄟˋㄕˊ，ㄊㄚㄇㄣ˙ㄕˋㄍㄨㄌㄤˊ。\\
-\toprule
-最後，我要說，把鑰匙交給批評者。 
-&  ㄗㄨㄟˋㄏㄡˋ，ㄨㄛˇㄧㄠˋㄕㄨㄛ，ㄅㄚˇㄧㄠˋㄕ˙ㄐㄧㄠㄍㄟˇㄆㄧㄆㄧㄥˊㄓㄜˇ。\\
-\bottomrule
-\end{tabularx}
-\caption{The results of the extractions from Chinese sentences using Dragon Mapper}
-\label{tab:notation}
-\end{table}
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{7cm} p{7cm}}
+%Input & Bopomofo\\
+%\toprule
+%當白人在美國行使暴力行為時，他們是孤狼。 
+%& ㄉㄤㄅㄞˊㄖㄣˊㄗㄞˋㄇㄟˇㄍㄨㄛˊㄒㄧㄥˊㄕˇㄅㄠˋㄌㄧˋㄒㄧㄥˊㄨㄟˋㄕˊ，ㄊㄚㄇㄣ˙ㄕˋㄍㄨㄌㄤˊ。\\
+%\toprule
+%最後，我要說，把鑰匙交給批評者。 
+%&  ㄗㄨㄟˋㄏㄡˋ，ㄨㄛˇㄧㄠˋㄕㄨㄛ，ㄅㄚˇㄧㄠˋㄕ˙ㄐㄧㄠㄍㄟˇㄆㄧㄆㄧㄥˊㄓㄜˇ。\\
+%\bottomrule
+%\end{tabularx}
+%\caption{The results of the extractions from Chinese sentences using Dragon Mapper}
+%\label{tab:notation}
+%\end{table}
+
 %ch3.4
 \section{Tokenization}
 In this paper, we primarily utilize tokenizers developed by the HuggingFace team for the tokenization process. Specifically, we employ the 'Bert-base-chinese' tokenizer for Chinese text and the 'Kim/bert-kor-base' tokenizer for Korean text. Additionally, we incorporate supplementary phonetic tokens for Bopomofo to enhance the tokenization accuracy for Chinese.
@@ -492,62 +494,63 @@ We compare different tokenization approaches, including the initial \texttt{Bert
 Table 3.5 presents the different tokenization results between using the initial tokenizer and the augmented tokenizer with Korean and Bopomofo tokens.
 
 %tab3.6
-%\begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=\linewidth]{tab_3_compare_of_tokenizers.jpg}
-%  \captionsetup{type=table}
-%  \caption{Comparison of Tokenizers}
-%  \label{tab:compare_of_tokenizer}
-%\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{tab_3_6.jpg}
+  \captionsetup{type=table}
+  \caption{Comparison of Tokenizers}
+  \label{tab:compare_of_tokenizer}
+\end{figure}
 
-\begin{table}
-\begin{tabularx}{0.9\linewidth}{p{3cm} p{3cm} p{3cm} p{3cm}}
-Method
-& Chinese
-& Korean
-& Bopomofo
-\\
-\toprule
-Text
-& 謝謝大家。
-& \krtext{감사해요.}
-& ㄒㄧㄝˋㄒㄧㄝˋㄉㄚˋㄐㄧㄚ。\\
-\\
-Tokenize
-(Bert-base-chinese)
-&  ['謝', '謝', 
-'大', '家', '。']
-& \krtext{['.']}
-& ['。']\\
-\\
-Tokenize
-(Add Tokens)
-& ['謝', '謝', 
-'大', '家', '。']
-& \krtext{['감사해요', '.']}
-& ['ㄒㄧㄝˋ', 'ㄒㄧㄝˋ', 'ㄉㄚˋ', 'ㄐㄧㄚ', '。']\\
-\toprule
-Text
-& 個人經歷，肯定會影響我們的觀念。
-& \krtext{개인의 경험은 당연히 자신의 인식을 바꿀 수 있습니다.}
-& ㄍㄜˋㄖㄣˊㄐㄧㄥㄌㄧˋ，ㄎㄣˇㄉㄧㄥˋㄏㄨㄟˋㄧㄥˇㄒㄧㄤˇㄨㄛˇㄇㄣ˙ㄉㄜ˙ㄍㄨㄢㄋㄧㄢˋ。\\
-\\
-Tokenize   
-(Bert-base-chinese)
-&  ['個', '人', '經', '歷', '，', '肯', '定', '會', '影', '響', '我', '們', '的', '觀', '念', '。']
-& ['.']
-& ['，', '。']\\
-\\
-Tokenize   
-(Add Tokens)
-& ['個', '人', '經', '歷', '，', '肯', '定', '會', '影', '響', '我', '們', '的', '觀', '念', '。']
-& \krtext{['개인의', '경험', '은', '당연히', '자신의', '인식을', '바꿀', '수', '있습니다', '.']}
-& ['ㄍㄜˋ', 'ㄖㄣˊ', 'ㄐㄧㄥ', 'ㄌㄧˋ', '，', 'ㄎㄣˇ', 'ㄉㄧㄥˋ', 'ㄏㄨㄟˋ', 'ㄧㄥˇ', 'ㄒㄧㄤˇ', 'ㄨㄛˇ', 'ㄇㄣ˙', 'ㄉㄜ˙', 'ㄍㄨㄢ', 'ㄋㄧㄢˋ', '。']\\
-\bottomrule
-\end{tabularx}
-\caption{Comparison of Tokenizers}
-\label{tab:notation}
-\end{table}
+
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{3cm} p{3cm} p{3cm} p{3cm}}
+%Method
+%& Chinese
+%& Korean
+%& Bopomofo
+%\\
+%\toprule
+%Text
+%& 謝謝大家。
+%& \krtext{감사해요.}
+%& ㄒㄧㄝˋㄒㄧㄝˋㄉㄚˋㄐㄧㄚ。\\
+%\\
+%Tokenize
+%(Bert-base-chinese)
+%&  ['謝', '謝', 
+%'大', '家', '。']
+%& \krtext{['.']}
+%& ['。']\\
+%\\
+%Tokenize
+%(Add Tokens)
+%& ['謝', '謝', 
+%'大', '家', '。']
+%& \krtext{['감사해요', '.']}
+%& ['ㄒㄧㄝˋ', 'ㄒㄧㄝˋ', 'ㄉㄚˋ', 'ㄐㄧㄚ', '。']\\
+%\toprule
+%Text
+%& 個人經歷，肯定會影響我們的觀念。
+%& \krtext{개인의 경험은 당연히 자신의 인식을 바꿀 수 있습니다.}
+%& ㄍㄜˋㄖㄣˊㄐㄧㄥㄌㄧˋ，ㄎㄣˇㄉㄧㄥˋㄏㄨㄟˋㄧㄥˇㄒㄧㄤˇㄨㄛˇㄇㄣ˙ㄉㄜ˙ㄍㄨㄢㄋㄧㄢˋ。\\
+%\\
+%Tokenize   
+%(Bert-base-chinese)
+%&  ['個', '人', '經', '歷', '，', '肯', '定', '會', '影', '響', '我', '們', '的', '觀', '念', '。']
+%& ['.']
+%& ['，', '。']\\
+%\\
+%Tokenize   
+%(Add Tokens)
+%& ['個', '人', '經', '歷', '，', '肯', '定', '會', '影', '響', '我', '們', '的', '觀', '念', '。']
+%& \krtext{['개인의', '경험', '은', '당연히', '자신의', '인식을', '바꿀', '수', '있습니다', '.']}
+%& ['ㄍㄜˋ', 'ㄖㄣˊ', 'ㄐㄧㄥ', 'ㄌㄧˋ', '，', 'ㄎㄣˇ', 'ㄉㄧㄥˋ', 'ㄏㄨㄟˋ', 'ㄧㄥˇ', 'ㄒㄧㄤˇ', 'ㄨㄛˇ', 'ㄇㄣ˙', 'ㄉㄜ˙', 'ㄍㄨㄢ', 'ㄋㄧㄢˋ', '。']\\
+%\bottomrule
+%\end{tabularx}
+%\caption{Comparison of Tokenizers}
+%\label{tab:notation}
+%\end{table}
 
 %ch3.5
 \section{Embedding}
@@ -614,10 +617,10 @@ By adopting this approach, we aim to enhance the semantic richness and accuracy 
 To improve translation quality, we incorporate an entropy loss function \cite{zhang2018generalized}that encourages the model to produce diverse and accurate translations. The cross-entropy loss function used to train our model is defined as:
 
 \[
-\mathcal{L}_{\text{CE}}(y, \hat{y}) = -\sum_{i} y_i \log(\hat{y}_i)
+\mathcal{L}_{\text{Cross_Entropy_Loss}}(p, \hat{p}) = -\sum_{i} p_i \log(\hat{p}_i)
 \]
 
-where $y$ is the true probability distribution (one-hot encoded), $\hat{y}$ is the predicted probability distribution (output of the neural network), and $i$ indexes the classes.
+where $p$ is the true probability distribution (one-hot encoded), $\hat{p}$ is the predicted probability distribution (output of the neural network), and $i$ indexes the classes.
 
 %ch4
 \chapter{Experiment}
@@ -786,42 +789,50 @@ Secondly, our method correctly maintains the specific mention of the "Mona Lisa"
 While our method does have repetition in the phrase \krtext{"이겨 이겨 내는,"} it still retains the key elements and context of the original sentence more faithfully. This indicates that our model captures specific tokens and structure from the source, showing potential for further improvement in maintaining accuracy and coherence.
 
 % table 5.1
-\begin{table}
-\begin{tabularx}{0.9\linewidth}{p{3cm} p{12cm} p{3cm}}
-Type & Sentence & Score\\
-\toprule
-Source
-&如今當我去看我們設計的表演時，常常發現我是唯一不在注意舞台的人。 
-& -\\
-\\
-Target
-&\krtext{그리고 저는 이제 제가 작업에 참여한 공연에 갈 때마다 종종 저를 제외한 모든 사람이 무대를 보고 있다는 것을 발견합니다.}
-& -\\
-Googletrans
-&\krtext{이제 우리가 디자인 한 공연을 보러 갈 때, 나는 종종 무대에주의를 기울이지 않는 유일한 사람이라는 것을 알게됩니다.}
-& 2.72 \\ 
- Our method 1
- &\krtext{제가 제가을 얻은 가까워 연습 발견한 않는 없어 하는가 않다는 않다는들이이 아님 발견 발견.}
- & 2.27\\
-\toprule
-Source
-&它被創作出來的五百多年之後——眉毛和睫毛早就淡去——《蒙娜麗莎》被保護在防彈、防地震的玻璃箱中。
-& -\\
-\\
-Target
-&\krtext{그려진 지 500년이 훌쩍 넘고, 눈썹도 사라진 지 한참 지나서 모나리자는 지진도 이겨 내는 방탄 액자의 보호를 받습니다.}
-& -\\
-Googletrans
-&\krtext{그것은 500 년이 지난 후에 만들어졌습니다 - 예수와 속눈썹은 오랫동안 사라졌습니다. "Mona Lisa"는 방탄과 지진의 유리 상자에서 보호되었습니다.}
-& 1.65 \\ 
- Our method 1
- &\krtext{그려진 지 500년이 훌쩍 넘고, 눈썹도 사라진 지 한참 지나서 모나리자는 지진 이겨 이겨 내는 방탄 액자의 보호를 받습니다.}
- & 81.37\\
-\bottomrule
-\end{tabularx}
-\caption{Case Study - Googletrans and Our Method 1}
-\label{tab:notation}
-\end{table}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{tab_5_1.jpg}
+  \captionsetup{type=table}
+  \caption{Case Study - Googletrans and Our Method 1}
+  \label{tab:Case Study - Googletrans and Our Method 1}
+\end{figure}
+
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{3cm} p{12cm} p{3cm}}
+%Type & Sentence & Score\\
+%\toprule
+%Source
+%&如今當我去看我們設計的表演時，常常發現我是唯一不在注意舞台的人。 
+%& -\\
+%\\
+%Target
+%&\krtext{그리고 저는 이제 제가 작업에 참여한 공연에 갈 때마다 종종 저를 제외한 모든 사람이 무대를 보고 있다는 것을 발견합니다.}
+%& -\\
+%Googletrans
+%&\krtext{이제 우리가 디자인 한 공연을 보러 갈 때, 나는 종종 무대에주의를 기울이지 않는 유일한 사람이라는 것을 알게됩니다.}
+%& 2.72 \\ 
+ %Our method 1
+% &\krtext{제가 제가을 얻은 가까워 연습 발견한 않는 없어 하는가 않다는 않다는들이이 아님 발견 발견.}
+% & 2.27\\
+%\toprule
+%Source
+%&它被創作出來的五百多年之後——眉毛和睫毛早就淡去——《蒙娜麗莎》被保護在防彈、防地震的玻璃箱中。
+%& -\\
+%\\
+%Target
+%&\krtext{그려진 지 500년이 훌쩍 넘고, 눈썹도 사라진 지 한참 지나서 모나리자는 지진도 이겨 내는 방탄 액자의 보호를 받습니다.}
+%& -\\
+%Googletrans
+%&\krtext{그것은 500 년이 지난 후에 만들어졌습니다 - 예수와 속눈썹은 오랫동안 사라졌습니다. "Mona Lisa"는 방탄과 지진의 유리 상자에서 보호되었습니다.}
+%& 1.65 \\ 
+% Our method 1
+% &\krtext{그려진 지 500년이 훌쩍 넘고, 눈썹도 사라진 지 한참 지나서 모나리자는 지진 이겨 이겨 내는 방탄 액자의 보호를 받습니다.}
+% & 81.37\\
+%\bottomrule
+%\end{tabularx}
+%\caption{Case Study - Googletrans and Our Method 1}
+%\label{tab:notation}
+%\end{table}
 
 Next, we examine the translations produced by our Method 2 across the four cases. 
 
@@ -941,42 +952,50 @@ In Case 1, seven Hanja words were identified in the Korean sentence: \krtext{"�
 In Case 2, only one Hanja word, \krtext{"학교"}-"學校" (school), was found in the Korean sentence. The translation correctly rendered the text before \krtext{"학교"} but contained errors after this word in the sentence.
 
 %table 5.3
-\begin{table}
-\begin{tabularx}{0.9\linewidth}{p{3cm} p{12cm} p{3cm}}
-Type & Sentence & Score\\
-\toprule
-Source
-&當\textbf{白人}在\textbf{美國}行使\textbf{暴力}行為時，他們是孤狼，患有\textbf{精神疾病}，或者是\textbf{停車爭執}而導致的。
-& -\\
-Hanja
-&\textbf{美國}\krtext{에서} \textbf{伯仁 男子}街 \textbf{暴力}乙 \krtext{지르}綿 \krtext{은둔} 型 \krtext{외톨이}疑 宵行\krtext{이나} \textbf{精神 疾患 駐車 紛爭}乙奴 \krtext{다룹니다}. 
-& -\\
-\\
-Target
-&\krtext{\textbf{미국}에서 \textbf{백인 남자}가 \textbf{폭력}을 저지르면 은둔 형 외톨이의 소행이나 \textbf{정신 질환 주차 분쟁}으로 다룹니다.} 
-& -\\
-Output
-&\krtext{림절로 고통 1도 사용하다가 칭뻠 르테스트 선행 욘 튻 꾄 조건이 이 멵바이크 느낌이예요 욘 제거하고 사장님이 이상인 칭....}
-& 1.92 \\ 
-\toprule
-Source
-&這不是\textbf{學校}!
-& -\\
-Hanja
-&\krtext{\textbf{선생님! 선생님! 여긴}} \textbf{學校}枷 \krtext{아니예요.}
-& - \\
-\\
-Target
-&\krtext{\textbf{선생님! 선생님! 여긴 학교}가 아니예요.}
-& -\\
-Output
-&\krtext{\textbf{선생님! 선생님! 여긴}분말 뾫.}
-& 47.75 \\
-\bottomrule
-\end{tabularx}
-\caption{Case Study - Examine Hanja Sentence}
-\label{tab:notation}
-\end{table}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{tab_5_3.jpg}
+  \captionsetup{type=table}
+  \caption{Case Study - Examine Hanja Sentence}
+  \label{tab:Case Study - Examine Hanja Sentence}
+\end{figure}
+
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{3cm} p{12cm} p{3cm}}
+%Type & Sentence & Score\\
+%\toprule
+%Source
+%&當\textbf{白人}在\textbf{美國}行使\textbf{暴力}行為時，他們是孤狼，患有\textbf{精神疾病}，或者是\textbf{停車爭執}而導致的。
+%& -\\
+%Hanja
+%&\textbf{美國}\krtext{에서} \textbf{伯仁 男子}街 \textbf{暴力}乙 \krtext{지르}綿 \krtext{은둔} 型 \krtext{외톨이}疑 宵行\krtext{이나} \textbf{精神 疾患 駐車 紛爭}乙奴 \krtext{다룹니다}. 
+%& -\\
+%\\
+%Target
+%&\krtext{\textbf{미국}에서 \textbf{백인 남자}가 \textbf{폭력}을 저지르면 은둔 형 외톨이의 소행이나 \textbf{정신 질환 주차 분쟁}으로 다룹니다.} 
+%& -\\
+%Output
+%&\krtext{림절로 고통 1도 사용하다가 칭뻠 르테스트 선행 욘 튻 꾄 조건이 이 멵바이크 느낌이예요 욘 제거하고 사장님이 이상인 칭....}
+%& 1.92 \\ 
+%\toprule
+%Source
+%&這不是\textbf{學校}!
+%& -\\
+%Hanja
+%&\krtext{\textbf{선생님! 선생님! 여긴}} \textbf{學校}枷 \krtext{아니예요.}
+%& - \\
+%\\
+%Target
+%&\krtext{\textbf{선생님! 선생님! 여긴 학교}가 아니예요.}
+%& -\\
+%Output
+%&\krtext{\textbf{선생님! 선생님! 여긴}분말 뾫.}
+%& 47.75 \\
+%\bottomrule
+%\end{tabularx}
+%\caption{Case Study - Examine Hanja Sentence}
+%\label{tab:notation}
+%\end{table}
 
 
 %ch5.2
@@ -1039,6 +1058,13 @@ The results are consistent with those shown in Figure 5.1. In Figure 5.2(b), the
 \chapter{Conclusions and Future Work}
 %ch6.1
 \section{Conclusions}
+In this paper, our objective is to improve an NMT model for translating between Traditional Chinese and Korean by integrating Hanja and Bopomofo embeddings. We assess our model using the BLEU score, and the results in Section 4.3 demonstrate that our method outperforms Google Translate on the TED Talks dataset. Additionally, we experiment with different proportions of 'Chinese', 'Hanja', and 'Bopomofo' embeddings, finding that performance improves when Hanja embeddings are included. This experiments show that the integration of Hanja embeddings significantly enhances translation quality, highlighting the importance of incorporating linguistic elements native to the target language.
+
+In the case study, we examine translation cases for Google Translate, our Method 1, and four embedding proportions in our Method 2. To validate the effectiveness of our approach, we visualize the embeddings' distribution. Using both PCA and t-SNE for dimensionality reduction, we observe that the BERT model, after training, is more effective in distinguishing the differences between Traditional Chinese and Korean, thus ensuring more accurate translations.
+
+In Section 5.1, we analyze the relationship between the number of generated Hanja in the sentences and our output translations. Contrary to our expectations, a higher number of generated Hanja in the sentence resulted in poorer translation quality, likely due to the lack of Korean training for our BERT model. While the inclusion of Hanja shows promise, the quality of translations can diminish when there are too many Hanja characters due to insufficient training on the Korean language, indicating a need for further model refinement.
+
+Moreover, we designed a method to align and obtain parallel corpora between Traditional Chinese and Korean from the TED websites. This approach helps in overcoming the challenge of limited parallel data, providing a foundation for future improvements in NMT systems between these languages.
 
 %ch6.2
 \section{Future Work}
