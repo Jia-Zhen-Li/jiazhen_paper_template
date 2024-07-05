@@ -617,7 +617,7 @@ By adopting this approach, we aim to enhance the semantic richness and accuracy 
 To improve translation quality, we incorporate an entropy loss function \cite{zhang2018generalized}that encourages the model to produce diverse and accurate translations. The cross-entropy loss function used to train our model is defined as:
 
 \[
-\mathcal{L}_{\text{Cross_Entropy_Loss}}(p, \hat{p}) = -\sum_{i} p_i \log(\hat{p}_i)
+\mathcal{L}_{\text{Cross\_Entropy\_Loss}}(p, \hat{p}) = -\sum_{i} p_i \log(\hat{p}_i)
 \]
 
 where $p$ is the true probability distribution (one-hot encoded), $\hat{p}$ is the predicted probability distribution (output of the neural network), and $i$ indexes the classes.
