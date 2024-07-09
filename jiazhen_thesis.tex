@@ -59,8 +59,18 @@ We evaluate our translation results using the Bilingual Evaluation Understudy (B
 我們使用雙語評估替補分數(BLEU)評分我們的翻譯結果，透過實證實驗評估其效果，並討論其對提高翻譯品質的影響。我們的研究結果表明，漢字和注音符號的結合有效地提高了繁體中文和韓語之間神經機器翻譯系統的準確性和流暢性。
 }
 
-%\newcommand*\Acknowledgements{%
-%感謝我...}
+\newcommand*\Acknowledgements{
+在就讀碩士班期間，我經歷了很多，也得到了許多人的幫助，對此我深表感激。
+
+首先，我要感謝我的指導教授賀保羅老師，在撰寫論文期間，教授給予了我許多寶貴的建議和指導。同時，我也十分感謝教授在平時對我的鼓勵，使我有信心能順利完成論文研究。
+
+此外，我要感謝高宏宇老師和許舒涵老師願意抽出寶貴時間參與我的口試，並協助指導我的碩士論文，對此我深表謝意。
+
+接下來，我要感謝實驗室的同學們，謝謝你們給予我的幫助及善意，在實驗室的氛圍真的非常好，這真的十分難得。
+
+最後，也十分感謝我的家人朋友，在精神上及金錢上給我許多幫助，讓我在就學期間能專注學習並完成學業。
+
+這兩年來，我獲益良多，衷心感謝這一路上幫助過我的所有人。謝謝大家。}
 
 
 
@@ -220,14 +230,56 @@ We crawled a total of 4,937 transcripts from the TED Talks website.
 
 Figure 3.2 illustrates an example of transcript timelines in different languages, highlighting the variations in timing and phrasing across translations.
 
-%\setcounter{table}{2}
+%fig3.2
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{fig_3_2.jpg}
   \captionsetup{type=figure}
-  \caption{Example of transcript timelines in different languages}
+  \caption{Transcript timelines in three languages (English, Traditional Chinese, and Korean) for Sir Ken Robinson's TED Talk "Do schools kill creativity?"}
   \label{fig:transcript}
 \end{figure}
+
+
+%\begin{table}
+%\begin{tabularx}{0.9\linewidth}{p{2cm} p{2cm} p{10cm}}
+%Language
+%&Time Steps
+%&Sentence
+%\\
+%\toprule
+%English
+%&00:05
+%& Good morning. How are you?
+%\\
+ 
+%&00:08
+%&(Audience) Good.
+%\\
+ 
+%&00:09
+%&It’s been great, hasn’t it? I’ve been blown away by the whole thing. In fact, I’m leaving.\\
+%\toprule
+%Chinese
+%&00:03
+%&早安，你們好嗎？ 這次大會實在很精彩，對吧？這一切都讓我太震驚。所以我現在要離開了。（笑聲）我今天要談的與貫穿這次研討會的三個主題相關。首先，這些演說與這裏的每個人所涵蓋領域的廣度與歧異度是展現人類創意的傑出典範。第二、這樣的創意讓人了解到，我們根本不能預知未來。我們不知道未來會是何種面貌。
+%\\
+ 
+%&00:48
+%&我對教育議題有興趣 — 事實上，我發現每個人都對教育有興趣 不是嗎？...
+%\\
+%\toprule
+%Korean
+%&00:03
+%&\krtext{안녕하세요. 정말 좋지 않습니까? 강연들이 너무 좋아 정신을 못 차리겠네요. 사실 그냥 집에 가야겠어요. (웃음) 이 강연에는 세 개의 주제가 있습니다. 그 세 가지 주제 모두 제가 오늘 강연할 내용과 겹치는 부분이 있습니다. 첫째는 우리가 본 강연들에서 나타나고 또 여러분들이 보여주고 있는 인류의 창의력입니다. 그 창의력이 얼마나 다양하고 광범위한지요. 둘째는 창의성이라는 것이 미래의 관점에서 보면 무슨 일이 일어날지, 어떤 식으로 전개될지 아무도 알 수 없다는 점입니다.}
+%\\
+ 
+%&00:48
+%&\krtext{저는 교육에 관심이 있습니다. 사실, 누구나 교육에 관심을 가지고 있다고 봅니다. 그렇지 않아요?...}
+%\bottomrule
+%\end{tabularx}
+%\caption{Transcript timelines in three languages (English, Traditional Chinese, and Korean) for Sir Ken Robinson's TED Talk "Do schools kill creativity?"}
+%\label{tab:transcripts}
+%\end{table}
 
 %ch3.1.3
 \subsection{Align Traditional Chinese - Korean sentence pairs with Sentence-BERT}
@@ -342,7 +394,7 @@ Finally, to find the Hanja that best matches the semantic meaning of the Korean 
 
 Figure 3.6 illustrates the flowchart for identifying the most suitable Hanja characters from a Korean sentence. This process involves using a Hanja dictionary table and the Sentence-BERT method to evaluate the similarity between Hangul and Hanja. The flowchart outlines each step of the alignment method, demonstrating how Sentence-BERT enhances the accuracy of matching Hangul text with its corresponding Hanja characters. 
 Figure 3.7 demonstrates the process of selecting the most suitable Hanja for a given Korean word using our method. 
-Figure 3.8 illustrates the extraction of Hanja sentences from Korean sentences using this approach. These figures exemplify how Sentence-BERT is applied to evaluate the similarity between Hangul and Hanja, thereby facilitating accurate Hanja selection and sentence formation.
+Table 3.3 illustrates the extraction of Hanja sentences from Korean sentences using this approach. These figures exemplify how Sentence-BERT is applied to evaluate the similarity between Hangul and Hanja, thereby facilitating accurate Hanja selection and sentence formation.
 
 \clearpage
 \begin{figure}[h!]
@@ -404,7 +456,7 @@ Dragonmapper\cite{dragonMapper} is a Python library designed for working with Ch
 
 In this paper, we use Dragonmapper to extract phonetic data from Chinese text. By converting Traditional Chinese characters into their corresponding Bopomofo, we can better understand the pronunciation and phonetic structure of the text. This is particularly useful for aligning Chinese sentences with Korean sentences, as phonetic similarities can play a significant role in achieving accurate translation.
 
-The results of the extractions from Chinese sentences are shown in Table 3.1. We will incorporate these extractions into our tokenizer to enhance performance. By adding phonetic data obtained through Dragonmapper, we aim to improve the model's ability to handle pronunciation and homophones, thus providing more accurate and contextually appropriate translations.
+The results of the extractions from Chinese sentences are shown in Table 3.4. We will incorporate these extractions into our tokenizer to enhance performance. By adding phonetic data obtained through Dragonmapper, we aim to improve the model's ability to handle pronunciation and homophones, thus providing more accurate and contextually appropriate translations.
 
 %tab3.4
 \begin{figure}[h!]
@@ -453,7 +505,7 @@ We augment our tokenizer with additional tokens for Korean Hangul and Bopomofo (
 
 The \texttt{Bert-base-chinese} tokenizer contains 21,128 tokens, the Bopomofo tokens add up to 2,089, and the \texttt{Kim/bert-kor-base} tokenizer includes 42,000 tokens. After merging all tokens, we obtain a total of 63,662 tokens. 
 
-Table 3.4 presents the token counts for each tokenizer before and after merging.
+Table 3.5 presents the token counts for each tokenizer before and after merging.
 
 %tab3.5
 %\begin{figure}[h!]
@@ -491,7 +543,7 @@ Kim/bert-kor-base
 \subsection{Comparison of Tokenizers}
 We compare different tokenization approaches, including the initial \texttt{Bert-base-chinese} tokenizer and the augmented version with additional Korean and Bopomofo tokens. The initial \texttt{Bert-base-chinese} tokenizer cannot identify Korean Hangul and Bopomofo tokens. However, after incorporating these additional tokens, the tokenizer can successfully recognize non-Chinese characters, including Korean Hangul and Bopomofo.
 
-Table 3.5 presents the different tokenization results between using the initial tokenizer and the augmented tokenizer with Korean and Bopomofo tokens.
+Table 3.6 presents the different tokenization results between using the initial tokenizer and the augmented tokenizer with Korean and Bopomofo tokens.
 
 %tab3.6
 \begin{figure}[h!]
